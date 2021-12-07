@@ -1,0 +1,30 @@
+<script src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
+
+<script>
+const human = []
+function myFunction(){
+  var input = document.getElementById('input')
+  input.addEventListener('change', function() {
+    readXlsxFile(input.files[0]).then(function(rows) {
+    for(let i =0;i<rows.length;i++){
+    const b = rows[i][2].split(",").map((item)=> item.trim()
+);
+    let a = {name:rows[i][1],specialty:b}
+    human.push(a)
+    }
+        console.log(human)    
+
+
+      // `rows` is an array of rows
+      // each row being an array of cells.
+    })
+  })
+  }
+</script>
+
+
+    <input id="input" type=file  name="files[]">
+    <button onclick="myFunction()">  Hello</button>
+
+
+    <textarea class="form-control" rows=35 cols=120 id="xlx_json"></textarea>
